@@ -1,15 +1,20 @@
-const express = require("express");
-const path = require("path");
-const PORT = process.env.PORT || 3001;
-const app = express();
+const express = require("express"),
+      path = require("path"),
+      PORT = process.env.PORT || 3001,
+      app = express();
 
-// Define middleware here
+// Define middleware:
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-// Serve up static assets (usually on heroku)
+
+// Serve up static assets:
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
+
+//Database setup:
+const mongoURI = process.env.MONGODB_URI || "mongodb://localhost/googlebooks";
+mongoose.connect( mongoURI,  { useNewUrlParser: true });
 
 // Define API routes here
 
@@ -19,6 +24,4 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
-app.listen(PORT, () => {
-  console.log(`🌎 ==> API server now on port ${PORT}!`);
-});
+app.listen(PORT, () => console.log(`🌎 ==> API server now on port ${PORT}!`));
