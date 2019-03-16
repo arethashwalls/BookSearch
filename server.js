@@ -1,7 +1,7 @@
 const express = require('express'),
       path = require('path'),
       mongoose = require('mongoose'),
-      PORT = process.env.PORT || 3001,
+      PORT = process.env.PORT || 3000,
       app = express();
 
 // Define middleware:
