@@ -13,6 +13,13 @@ const listify = (arr=['Author not found']) => {
     return `${allButLast}, and ${arr[arr.length - 1]}`;
 }
 
+const summarize = (str='No summary given.') => {
+    if(str.length < 150) {
+        return str
+    }
+    return `${str.slice(0, 150)}...`
+}
+
 //Controller functions:
 module.exports = {
     //READ books from the Google Books API:
@@ -29,7 +36,7 @@ module.exports = {
                     title: datum.volumeInfo.title,
                     //Call listify on the authors array:
                     authors: listify(datum.volumeInfo.authors),
-                    summary: datum.volumeInfo.description,
+                    summary: summarize(datum.volumeInfo.description),
                     image: imageLink,
                     link: datum.volumeInfo.canonicalVolumeLink
                }
