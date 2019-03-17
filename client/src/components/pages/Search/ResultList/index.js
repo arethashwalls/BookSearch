@@ -7,6 +7,7 @@ const Results = props => {
         {props.books.map(book => {
             return <Result 
                 title={book.title}
+                authors={book.authors}
                 image={book.image}
                 summary={book.summary}
                 link={book.link}

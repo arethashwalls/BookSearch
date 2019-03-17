@@ -9,15 +9,16 @@ const listify = (arr=['Author not found']) => {
     } else if(arr.length === 2) {
         return `${arr[0]} and ${arr[1]}`
     }
-    const allButLast = arr.slice(0, arr.length-2).join(', ')
+    const allButLast = arr.slice(0, arr.length-1).join(', ')
     return `${allButLast}, and ${arr[arr.length - 1]}`;
 }
 
+//A helper function to shorten summaries:
 const summarize = (str='No summary given.') => {
-    if(str.length < 150) {
+    if(str.length < 300) {
         return str
     }
-    return `${str.slice(0, 150)}...`
+    return `${str.slice(0, 300)}...`
 }
 
 //Controller functions:
