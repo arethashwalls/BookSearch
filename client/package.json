@@ -5,6 +5,7 @@
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
+    "classnames": "^2.2.6",
     "react": "^16.6.3",
     "react-bulma-components": "^2.3.0",
     "react-dom": "^16.6.3",
