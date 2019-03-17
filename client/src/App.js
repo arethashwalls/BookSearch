@@ -8,7 +8,6 @@ import { Section} from 'react-bulma-components/full'
 function App() {
     return (
       <Router>
-        <div>
             <h1 className='title'>BookSearch</h1>
             <Navbar />
             <Section>
@@ -16,7 +15,6 @@ function App() {
                 <Route exact path='/search' component={Search} />
                 <Route exact path='/saved' component={Saved} />
             </Section>
-        </div>
       </Router>
     );
   }
