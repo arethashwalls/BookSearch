@@ -10,23 +10,27 @@ const listify = (arr=['Author not found']) => {
         return `${arr[0]} and ${arr[1]}`
     }
     const allButLast = arr.slice(0, arr.length-2).join(', ')
-    return `${allButLast}, and ${arr[length - 1]}`;
+    return `${allButLast}, and ${arr[arr.length - 1]}`;
 }
 
 //Controller functions:
 module.exports = {
     //READ books from the Google Books API:
     searchBooks: (req, res) => {
-        const searchTerm = encodeURIComponent(req.body.searchTerm);
+        const searchTerm = encodeURIComponent(req.query.searchTerm);
         axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&maxResults=20`)
         .then(result => {
             const bookData = result.data.items.map(datum => {
-               return { 
+                //Some books don't have an imageLinks property, so set a default:
+                const imageLink = datum.volumeInfo.imageLinks ? 
+                    datum.volumeInfo.imageLinks.thumbnail 
+                    : '/images/nocover.png';
+                return { 
                     title: datum.volumeInfo.title,
                     //Call listify on the authors array:
                     authors: listify(datum.volumeInfo.authors),
                     summary: datum.volumeInfo.description,
-                    image: datum.volumeInfo.imageLinks.thumbnail,
+                    image: imageLink,
                     link: datum.volumeInfo.canonicalVolumeLink
                }
             });
