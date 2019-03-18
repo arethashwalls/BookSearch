@@ -7,13 +7,19 @@ import { Container } from 'react-bulma-components/full';
 class Search extends Component {
     state = {
         search: '',
-        results: []
+        results: [],
+        loadClass: ''
     }
 
     searchBooks = searchTerm => {
-        api.search(searchTerm)
-        .then(res => this.setState({ results: res.data }))
-        .catch(err => console.log(err));
+        this.setState({loadClass: 'is-loading'}, () => {
+            api.search(searchTerm)
+            .then(res => this.setState({ 
+                results: res.data,
+                loading: false
+            }))
+            .catch(err => console.log(err));
+        });
     };
 
     handleSearchSubmit = event => {
@@ -34,6 +40,7 @@ class Search extends Component {
                 search={this.state.search}
                 handleSearchSubmit={this.handleSearchSubmit}
                 handleInputChange={this.handleInputChange}
+                loadClass={this.state.loadClass}
             />
             <ResultList 
                 books={this.state.results}

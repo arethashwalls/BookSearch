@@ -5,18 +5,18 @@ import './style.css';
 
 class Header extends Component {
     state = {
-        activePage: 'Search'
+        activePage: window.location.pathname
     }
     getNavLinkClass = path => path === this.state.activePage ? 'is-active' : '';
     render() {
         return <Navbar fixed='top'>
                 <h1 className='title has-text-centered'>BookSearch</h1>
                 <Tabs className='is-boxed'>
-                    <li className={this.getNavLinkClass('Search')}>
-                        <NavLink to='/search' onClick={() => this.setState({ activePage: 'Search' })}>Search</NavLink>
+                    <li className={this.getNavLinkClass('/search')}>
+                        <NavLink to='/search' onClick={() => this.setState({ activePage: '/search' })}>Search</NavLink>
                     </li>
-                    <li className={this.getNavLinkClass("Saved")}>
-                        <NavLink to='/saved' onClick={() => this.setState({ activePage: 'Saved' })} >Saved Books</NavLink>
+                    <li className={this.getNavLinkClass("/saved")}>
+                        <NavLink to='/saved' onClick={() => this.setState({ activePage: '/saved' })} >Saved Books</NavLink>
                     </li>
                 </Tabs>
         </Navbar>

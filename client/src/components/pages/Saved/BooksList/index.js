@@ -3,6 +3,7 @@ import Book from '../Book';
 import { Box } from 'react-bulma-components/full';
 
 const BooksList = props => {
+    if(props.books.length === 0) return '';
     return <Box>
         {props.books.map(book => {
             return <Book 

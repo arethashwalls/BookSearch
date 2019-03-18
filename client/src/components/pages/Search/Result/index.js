@@ -22,7 +22,7 @@ const Result = props => {
                         link: props.link
                     })
                 }}>
-                    <i class="fas fa-save"></i>
+                    <i className="fas fa-save"></i>
                 </Button>
                 <a href={props.link} target='_blank' rel='noopener noreferrer'>View on Google Books</a>
             </Columns.Column>

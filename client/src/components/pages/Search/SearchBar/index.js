@@ -21,7 +21,7 @@ const SearchBar = props => {
                             />
                         </div>
                         <div className='control'>
-                            <Button color='primary' onClick={props.handleSearchSubmit}>
+                            <Button color='primary' className={props.loadClass} onClick={props.handleSearchSubmit}>
                                 <i className="fas fa-search"></i>
                             </Button>
                         </div>
