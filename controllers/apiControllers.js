@@ -48,7 +48,7 @@ module.exports = {
     },
     //READ all books from the database:
     getSavedBooks: (req, res) => {
-        db.Book.find({})
+        Book.find({})
         .then(result => res.json(result))
         .catch(err => console.log(err));
     },
@@ -60,7 +60,7 @@ module.exports = {
     },
     //DELETE a book from the database:
     deleteBook: (req, res) => {
-        db.Book.deleteOne({_id: req.params.id})
+        Book.deleteOne({_id: req.params.id})
         .then(response => res.json(response))
         .catch(err => console.log(err));
     }
