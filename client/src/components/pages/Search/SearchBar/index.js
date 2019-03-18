@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Columns }from 'react-bulma-components/full';
+import { Box, Columns, Button }from 'react-bulma-components/full';
 import './style.css';
 
 const SearchBar = props => {
@@ -21,9 +21,9 @@ const SearchBar = props => {
                             />
                         </div>
                         <div className='control'>
-                            <button className='button is-info' onClick={props.handleFormSubmit}>
+                            <Button color='primary' onClick={props.handleSearchSubmit}>
                                 <i className="fas fa-search"></i>
-                            </button>
+                            </Button>
                         </div>
                     </form>
             </Columns.Column>

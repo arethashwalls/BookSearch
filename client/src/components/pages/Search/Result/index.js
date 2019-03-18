@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Columns } from 'react-bulma-components/full';
+import { Box, Columns, Button } from 'react-bulma-components/full';
 
 
 const Result = props => {
@@ -12,6 +12,8 @@ const Result = props => {
                 <h3 className='title'>{props.title}</h3>
                 <h4 className='subtitle'>{props.authors}</h4>
                 <p>{props.summary}</p>
+                <br />
+                <Button className='is-pulled-right' color='primary' onClick={props.handleSaveBook}><i class="fas fa-save"></i></Button>
                 <a href={props.link} target='_blank' rel='noopener noreferrer'>View on Google Books</a>
             </Columns.Column>
         </Columns>

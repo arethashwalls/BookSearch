@@ -1,0 +1,11 @@
+.title {
+    padding-top: 1.5rem;
+}
+.navbar {
+    padding-bottom: 1.5rem;
+    display: block;
+    box-shadow: 0 2px 3px hsla(0,0%,4%,.1), 0 0 0 1px hsla(0,0%,4%,.1)
+}
+.tabs ul li:first-child {
+    margin-left: 24px;
+}

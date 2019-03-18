@@ -16,7 +16,7 @@ class Search extends Component {
         .catch(err => console.log(err));
     };
 
-    handleFormSubmit = event => {
+    handleSearchSubmit = event => {
         event.preventDefault();
         this.searchBooks(this.state.search);
     };
@@ -26,14 +26,19 @@ class Search extends Component {
         this.setState({search: value});
     };
 
+    handleSaveBook = () => {};
+
     render() {
         return <Container>
             <SearchBar 
                 search={this.state.search}
-                handleFormSubmit={this.handleFormSubmit}
+                handleFormSubmit={this.handleSearchSubmit}
                 handleInputChange={this.handleInputChange}
             />
-            <ResultList books={this.state.results}/>
+            <ResultList 
+                books={this.state.results}
+                handleSaveBook={this.handleSaveBook}
+            />
         </Container>
     }
 }

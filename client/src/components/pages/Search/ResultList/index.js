@@ -11,6 +11,7 @@ const Results = props => {
                 image={book.image}
                 summary={book.summary}
                 link={book.link}
+                handleSaveBook={props.handleSaveBook}
             />
         })}
     </Box>
