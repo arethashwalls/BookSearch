@@ -1,6 +1,6 @@
 //Imports:
 const axios = require('axios'),
-      db = require("../models/Book");
+      Book = require("../models/Book");
 
 //A helper function for formatting the author list, defaulting to 'not found':
 const listify = (arr=['Author not found']) => {
@@ -54,7 +54,7 @@ module.exports = {
     },
     //POST a new book to the database:
     saveBook: (req, res) => {
-        db.Book.create(req.body)
+        Book.create(req.body)
         .then(result => res.json(result))
         .catch(err => console.log(err));
     },

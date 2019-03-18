@@ -32,12 +32,11 @@ class Search extends Component {
         return <Container>
             <SearchBar 
                 search={this.state.search}
-                handleFormSubmit={this.handleSearchSubmit}
+                handleSearchSubmit={this.handleSearchSubmit}
                 handleInputChange={this.handleInputChange}
             />
             <ResultList 
                 books={this.state.results}
-                handleSaveBook={this.handleSaveBook}
             />
         </Container>
     }
