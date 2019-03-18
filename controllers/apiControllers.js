@@ -26,7 +26,7 @@ module.exports = {
     //READ books from the Google Books API:
     searchBooks: (req, res) => {
         const searchTerm = encodeURIComponent(req.query.searchTerm);
-        axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&maxResults=20`)
+        axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&maxResults=10`)
         .then(result => {
             const bookData = result.data.items.map(datum => {
                 //Some books don't have an imageLinks property, so set a default:

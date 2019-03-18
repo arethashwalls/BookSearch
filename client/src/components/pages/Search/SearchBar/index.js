@@ -1,15 +1,15 @@
 import React from 'react';
-import { Level, Box } from 'react-bulma-components/full';
+import { Box, Columns }from 'react-bulma-components/full';
+import './style.css';
 
 const SearchBar = props => {
     return <Box>
-        <Level>
-            <Level.Side align='left'>
-                <Level.Item>Enter a keyword to search for books:</Level.Item>
-            </Level.Side>
-            <Level.Side align='right'>
-                <Level.Item>
-                    <form className='form field has-addons' id='addItemForm'>
+        <Columns>
+            <Columns.Column size={4} align='left'>
+                <p>Enter a keyword to search for books:</p>
+            </Columns.Column>
+            <Columns.Column size={8} align='right' className='is-clearfix'>
+                    <form className='form field has-addons is-pulled-right' id='addItemForm'>
                         <div className='control'>
                             <input
                                 type='text'
@@ -26,9 +26,8 @@ const SearchBar = props => {
                             </button>
                         </div>
                     </form>
-                </Level.Item>
-            </Level.Side>
-        </Level>
+            </Columns.Column>
+        </Columns>
     </Box>
 }
 
